@@ -1,0 +1,35 @@
+<div class="container">
+	<div>
+		<h1>Search for a recipe today!</h1>
+		<p>Search up your favorite recipe, just put input the ingredients you want in it(commas between ingredients!) and voila!</p>
+	</div>
+	<div class="search container">
+		<%= form_tag recipes_index_path, method: :get, id: 'search' do %>
+			<%= label_tag :ingredient %>
+			<%= text_field_tag :search , '', placeholder: 'Enter what you\'re hungry for' , :required => true %>
+			<%= submit_tag "Search", class: 'btn btn-success' %>
+		<% end %>
+	</div>
+
+	<% unless params[:search].nil? %>
+	<div class="results">
+		<h2>We found <%= @recipes.count %> of the hottest results for <%= params[:search] %></h2>
+		<hr>
+		<table border="1" class="col-md-offset-3 col-xs-offset-3">
+		  <tr>
+		  	<th>Thumbnail</th>
+		  	<th>Title</th>
+		  	<th>Social Rank</th>
+		  </tr>
+		  <% @recipes.each do |recipe| %>
+		    <tr class=<%= cycle('even', 'odd') %>>
+		      <td><%= link_to(image_tag(recipe["image_url"]), recipe['source_url'])%></td>
+		      <td><%= link_to(sanitize(recipe["title"]), recipe['source_url']) %></td>
+		      <td><%= sprintf '%.2f', recipe["social_rank"] %></td>
+		    </tr>
+		  <% end %>
+		</table>
+
+	</div>
+	<% end %>
+</div>
