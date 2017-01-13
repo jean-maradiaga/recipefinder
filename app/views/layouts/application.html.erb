@@ -1,15 +1,294 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <title>Recipefinder - Ultrabeta</title>
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-        <%= csrf_meta_tags %>
-        <%= favicon_link_tag 'favicon.ico' %>
-    </head>
-    <body>
-        <%= yield %>
-    <br>
-    <p>Powered By Food2Fork.com</p>
-    </body>
-  </html>
+<html>
+  <head>
+    <title>Recipefinder - BETA</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.png' %>
+  </head>
+
+
+<!-- BODY START -->
+<body id="page">
+
+  <!-- Page Content -->
+  <div class="page-wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+
+
+    <!-- Search Form -->
+
+    <%= form_tag recipes_index_path, method: :get, id: 'search', :class => 'main-search-form' do %>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-18 col-lg-offset-3 col-md-20 col-md-offset-2">
+            <div class="form-content">
+              <div class="input-line">
+              <%= text_field_tag :search , '', placeholder: 'What is thy bidding my master?', :required => true, 
+                                 :class => 'form-input check-value' %>
+              </div>
+              <span class="close-form-toggle"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+
+    <!-- Header Content -->
+    <div class="container">
+      <div class="main-header-content">
+        <a href="index.html" class="logo-wrapper">
+            <%= image_tag "site-logo.png" %>
+         </a>
+        <div class="header-menu-container">
+          <nav class="main-nav">
+            <span class="close-mobile-menu">
+            <i class="icon-cross2"></i>
+            </span>
+            <ul>
+              <li>
+                <a href="index.html">Home</a>
+              </li>
+              <li class="megamenu-container menu-item-has-children">
+                <%= link_to 'Recipes', recipes_index_path(search: "best recipes") %>
+                <ul>
+                  <li class="menu-item-has-children">
+                  <%= link_to 'Meath', recipes_index_path(search: "Meath") %>
+                    <ul>
+                      <li><%= link_to 'Chicken', recipes_index_path(search: "Chicken") %></li>
+                      <li><%= link_to 'Pork', recipes_index_path(search: "Pork") %></li>
+                      <li><%= link_to 'Beaf', recipes_index_path(search: "Beaf") %>></li>
+                    </ul>
+                  </li>
+                  <li class="menu-item-has-children">
+                    <%= link_to 'Pasta', recipes_index_path(search: "Pasta") %>
+                    <ul>
+                      <li><%= link_to 'Bucatini', recipes_index_path(search: "Bucatini") %></li>
+                      <li><%= link_to 'Capellini', recipes_index_path(search: "Capellini") %></li>
+                      <li><%= link_to 'Spaghetti', recipes_index_path(search: "Spaghetti") %></li>
+                    </ul>
+                  </li>
+                  <li class="menu-item-has-children">
+                    <%= link_to 'Soup', recipes_index_path(search: "Soup") %>
+                    <ul>
+                      <li><%= link_to 'Vegetarian', recipes_index_path(search: "Soup,Vegetarian") %></li>
+                      <li><%= link_to 'Onion', recipes_index_path(search: "Soup,Onion") %></li>
+                      <li><%= link_to 'Beans', recipes_index_path(search: "Soup,Beans") %></li>
+                    </ul>
+                  </li>
+                  <li class="menu-item-has-children">
+                    <%= link_to 'Breakfast', recipes_index_path(search: "Breakfast") %>
+                    <ul>
+                      <li><%= link_to 'Vegetarian', recipes_index_path(search: "Breakfast,Vegetarian") %></li>
+                      <li><%= link_to 'Fruit', recipes_index_path(search: "Breakfast,Fruit") %></li>
+                      <li><%= link_to 'Traditional', recipes_index_path(search: "Breakfast,Bacon,Eggs") %></li>
+                    </ul>
+                  </li>
+                  <li class="menu-item-has-children">
+                    <%= link_to 'Fish', recipes_index_path(search: "Fish") %>
+                    <ul>
+                      <li><%= link_to 'Tuna', recipes_index_path(search: "Tuna") %></li>
+                      <li><%= link_to 'Salmon', recipes_index_path(search: "Salmon") %></li>
+                      <li><%= link_to 'Bass', recipes_index_path(search: "Bass") %></li>
+                    </ul>
+                  </li>
+                  <li class="menu-item-has-children">
+                    <%= link_to 'Deserts', recipes_index_path(search: "Desert") %>
+                    <ul>
+                      <li><%= link_to 'Chocolate', recipes_index_path(search: "Chocolate") %></li>
+                      <li><%= link_to 'Berries', recipes_index_path(search: "Berries") %></li>
+                      <li><%= link_to 'Candy', recipes_index_path(search: "Candy") %></li>
+                    </ul>
+                  </li>
+                  <li class="menu-item-has-children">
+                    <%= link_to 'Drink', recipes_index_path(search: "Drink") %>
+                    <ul>
+                      <li><%= link_to 'Alcoholic', recipes_index_path(search: "Beer, Wine, Vodka, Whisky") %></li>
+                      <li><%= link_to 'Non alcoholic', recipes_index_path(search: "Drinks, Smoothie") %></li>
+                      <li><%= link_to 'Seasonal', recipes_index_path(search: "Drink, Halloween, Christmas, Pumpking") %></li>
+                    </ul>
+                  </li>
+                  <li class="menu-item-has-children">
+                    <%= link_to 'Dinner', recipes_index_path(search: "Dinner") %>
+                    <ul>
+                      <li><%= link_to 'Chicken', recipes_index_path(search: "Chicken") %></li>
+                      <li><%= link_to 'Meat', recipes_index_path(search: "Meat") %></li>
+                      <li><%= link_to 'Vegetarian', recipes_index_path(search: "Vegetarian") %>></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Cookbook</a>
+              </li>
+              <li>
+                <a href="#">Menu</a>
+              </li>
+              <li>
+                <a href="#">About</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- START MOBILE SEARCH FORM -->
+
+          <%= form_tag recipes_index_path, method: :get, id: 'search', :class => 'search-form mobile-search-form' do %>
+            <i class="form-icon icon-search3"></i>
+                    <%= text_field_tag :search , '', placeholder: 'Search', :required => true, 
+                                       :class => 'form-input check-value' %>
+          <% end %>
+
+          <!-- END SEARCH FORM -->
+
+          <!-- SOCIAL  -->
+
+          <ul class="clean-list social-platforms">
+            <li>
+              <a href="https://www.facebook.com/" target="_blank">
+              <i class="icon-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/" target="_blank">
+              <i class="icon-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/" target="_blank">
+              <i class="icon-instagram"></i>
+              </a>
+            </li>
+          </ul>
+
+        <!-- END SOCIAL -->
+
+
+        <!-- START TOGGLE SEARCH FORM -->
+
+
+          <span class="search-form-toggle">
+            <i class="icon-search3"></i>
+          </span>
+        </div>
+
+
+        <!-- STOP TOGGLE SEARCH FORM -->
+
+      <!-- MOBILE MENU TOGGLE -->
+        <span class="mobile-menu-toggle">
+        <i class="icon-menu5"></i>
+        </span>
+    <!-- END MOBILE MENU TOGGLE -->
+
+      </div>
+    </div>
+  </header>
+
+
+<!-- Content Wrapper -->
+<div class="content-wrapper">
+  <!-- Site Intro -->
+  <div class="site-intro">
+    <%= image_tag "site-intro-bg.jpg" %>
+  </div>
+
+  <%= yield %>
+
+</div>
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="widget widget_text">
+            <h4>Why cook?</h4>
+            <p class="my_gray">At the end of a long workday, one of my favorite ways to unwind is by slicing and dicing vegetables for dinner. The steady chop, chop, chop of my knife against the cutting board quiets my mind and soothes my soul. Cooking is meditation with the promise of a good meal afterward</p>
+          </div>
+        </div>
+
+        <!-- START TAGS -->
+        <div class="col-md-10">
+          <div class="widget widget_tagcloud">
+            <h5 class="widget-title">Tags</h5>
+            <div class="tagcloud">
+              <%= link_to 'Fish', recipes_index_path(search: "Fish"),{ :class=>"my_gray" } %>
+              <span class="text">Fish</span>
+              <%= link_to 'Chicken', recipes_index_path(search: "Chicken"),{ :class=>"my_gray" } %>
+              <span class="text">Chicken</span>
+              <%= link_to 'Garlic', recipes_index_path(search: "Garlic"),{ :class=>"my_gray" } %>
+              <span class="text">Garlic</span>
+              <%= link_to 'Onion', recipes_index_path(search: "Onion"),{ :class=>"my_gray" } %>
+              <span class="text">Onion</span>
+              <%= link_to 'Meat', recipes_index_path(search: "Meat"),{ :class=>"my_gray" } %>
+              <span class="text">Meat</span>
+              <%= link_to 'Potato', recipes_index_path(search: "Potato"),{ :class=>"my_gray" } %>
+              <span class="text">Potato</span>
+              <%= link_to 'Tomatoes', recipes_index_path(search: "Tomatoes"),{ :class=>"my_gray" } %>
+              <span class="text">Tomatoes</span>
+              <%= link_to 'Pork', recipes_index_path(search: "Pork"),{ :class=>"my_gray" } %>
+              <span class="text">Pork</span>
+              <%= link_to 'Seafood', recipes_index_path(search: "Seafood"),{ :class=>"my_gray" } %>
+              <span class="text">Seafood</span>
+              <%= link_to 'Eggs', recipes_index_path(search: "Eggs"),{ :class=>"my_gray" } %>
+              <span class="text">Eggs</span>
+              <%= link_to 'Oil', recipes_index_path(search: "Oil"),{ :class=>"my_gray" } %>
+              <span class="text">Oil</span>
+              <%= link_to 'Milk', recipes_index_path(search: "Milk"),{ :class=>"my_gray" } %>
+              <span class="text">Milk</span>
+              <%= link_to 'Soup', recipes_index_path(search: "Soup"),{ :class=>"my_gray" } %>
+              <span class="text">Soup</span>
+              <%= link_to 'Dessert', recipes_index_path(search: "Dessert"),{ :class=>"my_gray" } %>
+              <span class="text">Dessert</span>
+            </div>
+          </div>
+        </div>
+        <!-- END TAGS -->
+ 
+
+        <!-- START SOCIAL -->
+        <div class="col-md-6">
+          <div class="widget widget_social">
+            <h5 class="widget-title">Follow us</h5>
+            <ul class="clean-list social-platforms my_gray">
+              <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                <i class="icon-facebook my_gray"></i>
+                <span class="my_gray">facebook</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/" target="_blank">
+                <i class="icon-twitter my_gray"></i>
+                <span class="my_gray">twitter</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/" target="_blank">
+                <i class="icon-instagram my_gray"></i>
+                <span class="my_gray">instagram</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://plus.google.com/" target="_blank">
+                <i class="icon-pinterest my_gray"></i>
+                <span class="my_gray">Google+</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- END SOCIAL -->
+
+      </div>
+      <p class="copyrights align-center">Powered by <a href="https://www.food2fork.com/" target="_blank">Food2Fork</a></p>
+    </div>
+  </footer>
+  </div>
+</body>
+</html>
+

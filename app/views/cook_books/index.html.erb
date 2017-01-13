@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Cook Books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cook_books.each do |cook_book| %>
+      <tr>
+        <td><%= cook_book.name %></td>
+        <td><%= cook_book.description %></td>
+        <td><%= cook_book.user %></td>
+        <td><%= link_to 'Show', cook_book %></td>
+        <td><%= link_to 'Edit', edit_cook_book_path(cook_book) %></td>
+        <td><%= link_to 'Destroy', cook_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cook book', new_cook_book_path %>

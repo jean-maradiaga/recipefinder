@@ -1,35 +1,58 @@
-<div class="container">
-	<div>
-		<h1>Search for a recipe today!</h1>
-		<p>Search up your favorite recipe, just put input the ingredients you want in it(commas between ingredients!) and voila!</p>
-	</div>
-	<div class="search container">
-		<%= form_tag recipes_index_path, method: :get, id: 'search' do %>
-			<%= label_tag :ingredient %>
-			<%= text_field_tag :search , '', placeholder: 'Enter what you\'re hungry for' , :required => true %>
-			<%= submit_tag "Search", class: 'btn btn-success' %>
-		<% end %>
+
+<h2 class="section-title dark">Recipes</h2>
+
+	<div class="container">
+	  <div class="filter-block">
+	    <span class="block-title">Filter by:</span>
+	    <ul class="clean-list filters-list">
+	      <li class="filter-item">
+	        <%= link_to @filter_options.first, recipes_index_path(search: @filter_options.first) %>
+	      </li>
+	      <li class="filter-item">
+	        <%= link_to @filter_options[2], recipes_index_path(search: @filter_options[2]) %>
+	      </li>
+	      <li class="filter-item">
+	        <%= link_to @filter_options[3], recipes_index_path(search: @filter_options[3]) %>
+	      </li>
+	      <li class="filter-item">
+	        <%= link_to @filter_options[4], recipes_index_path(search: @filter_options[4]) %>
+	      </li>
+	      <li class="filter-item">
+	        <%= link_to @filter_options[5], recipes_index_path(search: @filter_options[5]) %>
+	      </li>
+	      <li class="filter-item">
+	        <%= link_to @filter_options[6], recipes_index_path(search: @filter_options[6]) %>
+	      </li>
+	      <li class="filter-item">
+	        <%= link_to @filter_options[7], recipes_index_path(search: @filter_options[7]) %>
+	      </li>
+	    </ul>
+	  </div>
 	</div>
 
-	<% unless params[:search].nil? %>
-	<div class="results">
-		<h2>We found <%= @recipes.count %> of the hottest results for <%= params[:search] %></h2>
-		<hr>
-		<table border="1" class="col-md-offset-3 col-xs-offset-3">
-		  <tr>
-		  	<th>Thumbnail</th>
-		  	<th>Title</th>
-		  	<th>Social Rank</th>
-		  </tr>
-		  <% @recipes.each do |recipe| %>
-		    <tr class=<%= cycle('even', 'odd') %>>
-		      <td><%= link_to(image_tag(recipe["image_url"]), recipe['source_url'])%></td>
-		      <td><%= link_to(sanitize(recipe["title"]), recipe['source_url']) %></td>
-		      <td><%= sprintf '%.2f', recipe["social_rank"] %></td>
-		    </tr>
-		  <% end %>
-		</table>
+	<div class="container">
+	  <div class="row isotope-container" data-default-selection="*">
 
+	    <% @recipes.each do |recipe| %>
+
+	    <div class="col-xs-12 col-lg-8 recipe-box-wrapper isotope-item chicken">
+	      <div class="recipe-box">
+	        <div class="box-cover">
+	          <%= link_to(image_tag(recipe["image_url"], class:"recipe_img"), recipe['source_url'])%>
+	        </div>
+	        <div class="box-body">
+	          <h5 class="box-title">                                 
+	            <%= link_to(sanitize(recipe["title"]), recipe['source_url']) %>
+	          </h5>
+	          <!-- <p class="category">By <%= link_to(sanitize(recipe["publisher"]), recipe['publisher_url']) %></p> -->
+	        </div>
+	      </div>
+	    </div>
+
+	    <% end %>
+
+	  </div>
 	</div>
-	<% end %>
+
 </div>
+

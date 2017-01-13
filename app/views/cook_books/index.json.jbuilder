@@ -1,0 +1,1 @@
+json.array! @cook_books, partial: 'cook_books/cook_book', as: :cook_book

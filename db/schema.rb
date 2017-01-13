@@ -11,11 +11,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161211032001) do
+ActiveRecord::Schema.define(version: 20170105062225) do
+
+  create_table "cook_books", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "cook_books", ["user_id"], name: "index_cook_books_on_user_id"
+
+  create_table "courses_menus", force: :cascade do |t|
+    t.string   "course_name"
+    t.string   "day"
+    t.integer  "menu_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "courses_menus", ["menu_id"], name: "index_courses_menus_on_menu_id"
+
+  create_table "courses_menus_recipes", id: false, force: :cascade do |t|
+    t.integer "courses_menu_id"
+    t.integer "recipe_id"
+  end
+
+  add_index "courses_menus_recipes", ["courses_menu_id"], name: "index_courses_menus_recipes_on_courses_menu_id"
+  add_index "courses_menus_recipes", ["recipe_id"], name: "index_courses_menus_recipes_on_recipe_id"
+
+  create_table "menus", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "menus", ["user_id"], name: "index_menus_on_user_id"
 
   create_table "recipes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "img_url"
+    t.string   "title"
+    t.string   "source_url"
+    t.integer  "cook_book_id"
+  end
+
+  add_index "recipes", ["cook_book_id"], name: "index_recipes_on_cook_book_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.boolean  "status"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

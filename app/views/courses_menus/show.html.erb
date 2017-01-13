@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course name:</strong>
+  <%= @courses_menu.course_name %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @courses_menu.day %>
+</p>
+
+<p>
+  <strong>Menu:</strong>
+  <%= @courses_menu.menu %>
+</p>
+
+<%= link_to 'Edit', edit_courses_menu_path(@courses_menu) %> |
+<%= link_to 'Back', courses_menus_path %>
