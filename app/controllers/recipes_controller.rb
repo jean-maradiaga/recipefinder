@@ -2,8 +2,9 @@ class RecipesController < ApplicationController
     before_action :set_filter
 
 		def index
+		  @page = params[:page] || 1
 		  @search_term = params[:search] || 'chocolate'
-		  @recipes = Recipe.for(@search_term)
+		  @recipes = Recipe.for(@search_term, @page)
 		end
 
 	private

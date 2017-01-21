@@ -1,3 +1,5 @@
+document.addEventListener("turbolinks:load", function() {
+
 (function ($) {
 	'use strict';
 
@@ -399,3 +401,4 @@
 		}, 300);
 	});
 }(jQuery));
+})

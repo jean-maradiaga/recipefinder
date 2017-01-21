@@ -11,11 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require imagesloaded
 //= require isotope
 //= require modernizr
 //= require slick
 //= require options
+//= require turbolinks
 //= require_tree

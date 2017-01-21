@@ -14,7 +14,7 @@ gem 'capybara', '~> 2.4.4'
 gem 'poltergeist', '~> 1.6.0'
 gem 'phantomjs', '~> 1.9.8.0'
 gem 'will_paginate', '~> 3.0.6'
-
+gem 'jquery-turbolinks'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 

@@ -1,29 +1,29 @@
 
 <h2 class="section-title dark">Recipes</h2>
 
-	<div class="container">
+	<div class="container" data-no-turbolink="true">
 	  <div class="filter-block">
 	    <span class="block-title">Filter by:</span>
 	    <ul class="clean-list filters-list">
-	      <li class="filter-item">
+	      <li class="text">
 	        <%= link_to @filter_options.first, recipes_index_path(search: @filter_options.first) %>
 	      </li>
-	      <li class="filter-item">
+	      <li class="text">
 	        <%= link_to @filter_options[2], recipes_index_path(search: @filter_options[2]) %>
 	      </li>
-	      <li class="filter-item">
+	      <li class="text">
 	        <%= link_to @filter_options[3], recipes_index_path(search: @filter_options[3]) %>
 	      </li>
-	      <li class="filter-item">
+	      <li class="text">
 	        <%= link_to @filter_options[4], recipes_index_path(search: @filter_options[4]) %>
 	      </li>
-	      <li class="filter-item">
+	      <li class="text">
 	        <%= link_to @filter_options[5], recipes_index_path(search: @filter_options[5]) %>
 	      </li>
-	      <li class="filter-item">
+	      <li class="text">
 	        <%= link_to @filter_options[6], recipes_index_path(search: @filter_options[6]) %>
 	      </li>
-	      <li class="filter-item">
+	      <li class="text">
 	        <%= link_to @filter_options[7], recipes_index_path(search: @filter_options[7]) %>
 	      </li>
 	    </ul>
@@ -53,6 +53,29 @@
 
 	  </div>
 	</div>
+
+<div class="container">
+  <div class="pagination">
+    <ul class="page-numbers">
+      <li>
+        <%= link_to 1, recipes_index_path(search: @search_term, page: 1),{ :class=>"page-numbers" } %>
+      </li>
+      <li>
+        <%= link_to 2, recipes_index_path(search: @search_term, page: 2),{ :class=>"page-numbers" } %> 
+      </li>
+      <li>
+        <%= link_to 3, recipes_index_path(search: @search_term, page: 3),{ :class=>"page-numbers" } %>
+      </li>
+      <li>
+        <%= link_to 4, recipes_index_path(search: @search_term, page: 4),{ :class=>"page-numbers" } %>
+      </li>
+      <li>
+        <%= link_to 5, recipes_index_path(search: @search_term, page: 5),{ :class=>"page-numbers" } %>
+      </li>
+    </ul>
+  </div>
+</div>
+
 
 </div>
 

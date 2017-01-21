@@ -10,10 +10,12 @@ class Recipe < ActiveRecord::Base
   hostport = ENV['FOOD2FORK_SERVER_AND_PORT'] || 'www.food2fork.com'
   base_uri "http://#{hostport}/api"
 
-  default_params key: key_value
+  default_params key: key_value, page: 1
   format :json
 
-  def self.for (keyword)
+  def self.for (keyword, page_num)
+    default_params page: page_num
     get("/search", query: {q: keyword})["recipes"]
   end
+
 end
