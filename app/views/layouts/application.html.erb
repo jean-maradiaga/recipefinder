@@ -50,11 +50,8 @@
             <i class="icon-cross2"></i>
             </span>
             <ul>
-              <li>
-                <a href="index.html">Home</a>
-              </li>
               <li class="megamenu-container menu-item-has-children">
-                <%= link_to 'Recipes', recipes_index_path(search: "best recipes") %>
+                <%= link_to 'Recipes', recipes_index_path(search: "best") %>
                 <ul>
                   <li class="menu-item-has-children">
                   <%= link_to 'Meath', recipes_index_path(search: "Meath") %>
@@ -128,8 +125,15 @@
               <li>
                 <a href="#">Menu</a>
               </li>
+               <li>
+                <%= link_to 'About', about_path %>
+              </li>
               <li>
-                <a href="#">Login</a>
+                <% if logged_in? %>
+                  <%= link_to 'Logout', logout_path, :method => :delete %>
+                <% else %>
+                  <%= link_to 'Login', login_path %>
+                <% end %>
               </li>
             </ul>
           </nav>

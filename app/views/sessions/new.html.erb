@@ -1,0 +1,55 @@
+<!-- Contact Area -->
+<section class="section section-contact">
+  <div class="row row-fit">
+    <div class="col-md-12 centered">
+      <div class="contact-area-block">
+        <h2 class="section-title">Login</h2>
+
+	<!-- LOGIN FORM -->
+	<%= form_for(:user, url: sessions_path, :html => {:class => "contact-form"} )do |f| %>
+
+          <label class="input-line">
+          <%= f.text_field :email, class: 'form-input check-value'  %>
+          <span class="placeholder">E-mail address</span>
+          <i class="form-icon icon-user2"></i>
+          </label>
+
+          <label class="input-line">
+          <%= f.password_field :password, class: 'form-input check-value'  %>
+          <span class="placeholder">Password</span>
+          <i class="form-icon icon-key2"></i>
+          </label>
+
+		  <%= f.submit "Login", :class => 'btn submit-btn' %>
+
+    <% end %>
+	<!-- END LOGIN FORM  -->
+
+	<!-- CONCTACT INFO  -->
+		<div class="contact-blocks">
+		  <div class="row row-fit">
+		    <div class="col-sm-8">
+		      <div class="contact-block">
+		        <span class="title">Phone</span>
+		        <p class="body">(+506) 8817-6579</p>
+		      </div>
+		    </div>
+		    <div class="col-sm-8">
+		      <div class="contact-block">
+		        <span class="title">Email</span>
+		        <p class="body">sunshine-on-rails@gmail.com</p>
+		      </div>
+		    </div>
+		    <div class="col-sm-8">
+		      <div class="contact-block">
+		        <span class="title">Address</span>
+		        <p class="body">CR, San Jose, Curridabat</p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+      </div>
+    </div>
+  </div>
+</section>

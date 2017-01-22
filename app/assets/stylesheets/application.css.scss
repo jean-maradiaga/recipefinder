@@ -10944,6 +10944,19 @@ img{
 	height: 195px;
 }
 
+.post_img {
+
+  max-width: 230px!important;
+  max-height: 170px!important;
+  width: 230px!important;
+  height: 170px!important;
+}
+
 table{
 	text-align: center;
 }*/
+
+.centered {
+    margin: 0 auto;
+    text-align: left;
+}

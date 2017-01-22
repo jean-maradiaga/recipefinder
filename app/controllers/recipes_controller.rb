@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
     before_action :set_filter
+    skip_before_action :ensure_login, only: [:index]
 
 		def index
 		  @page = params[:page] || 1

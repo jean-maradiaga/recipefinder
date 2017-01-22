@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   
 
-  resources :courses_menus
-  resources :menus
-  resources :cook_books
-  resources :users
-  get 'recipes/index'
 
+  resources :courses_menus
+  
+  
+
+  get 'recipes/index'
   root 'recipes#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -20,9 +20,14 @@ Rails.application.routes.draw do
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  get "/login" => "sessions#new", as: "login"
+  delete "/logout" => "sessions#destroy", as: "logout"
+
+  get "/about" => "about#manifesto", as: "about"
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  resources :sessions, only: [:new, :create, :destroy]
 
   # Example resource route with options:
   #   resources :products do
@@ -37,10 +42,11 @@ Rails.application.routes.draw do
   #   end
 
   # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+    resources :users do
+      resources :cook_books
+      resources :menus
+
+    end
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
