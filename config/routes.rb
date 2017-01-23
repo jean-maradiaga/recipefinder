@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
   
 
-
-  resources :courses_menus
-  
-  
-
   get 'recipes/index'
   root 'recipes#index'
 
@@ -24,10 +19,12 @@ Rails.application.routes.draw do
   delete "/logout" => "sessions#destroy", as: "logout"
 
   get "/about" => "about#manifesto", as: "about"
+  get "/profile" => "users#show", as: "profile"
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :sessions, only: [:new, :create, :destroy]
+  resources :account_activations, only: [:edit]
 
   # Example resource route with options:
   #   resources :products do
@@ -43,8 +40,12 @@ Rails.application.routes.draw do
 
   # Example resource route with sub-resources:
     resources :users do
+
       resources :cook_books
-      resources :menus
+
+      resources :menus do
+        resources :courses_menus
+      end
 
     end
 

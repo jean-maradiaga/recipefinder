@@ -11,8 +11,14 @@ class SessionsController < ApplicationController
   	password = params[:user][:password]
 
   	if user && user.authenticate(password)
-  		session[:user_id] = user.id
-  		redirect_to root_path, notice: "Logged in successfully"
+
+      if user.status?
+  		  log_in user # Helper methdod in session helper
+  		  redirect_to root_path, notice: "Logged in successfully"
+      else
+        redirect_to login_path, notice: "Account not activated. Check your email for the activation link. "
+      end
+
   	else
   		redirect_to login_path, notice: "Invalid username/password combination"
   	end

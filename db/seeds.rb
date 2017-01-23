@@ -16,11 +16,11 @@ Recipe.destroy_all
 
 
 User.create! [
-  { email: "jean@mail.com", password: "12345", status: true },
-  { email: "wendy@mail.com", password: "12345", status: true  },
-  { email: "jose@mail.com", password: "12345", status: true  },
-  { email: "vivi@mail.com", password: "12345", status: true  },
-  { email: "emilio@mail.com", password: "12345", status: true  }
+  { email: "jean@mail.com", password: "12345", status: true, admin: true, activated_at: Time.zone.now },
+  { email: "wendy@mail.com", password: "12345", status: true, admin: true, activated_at: Time.zone.now },
+  { email: "jose@mail.com", password: "12345", status: true, admin: true, activated_at: Time.zone.now },
+  { email: "glenn@mail.com", password: "12345", status: true, admin: true, activated_at: Time.zone.now },
+  { email: "emilio@mail.com", password: "12345", status: true, activated_at: Time.zone.now  }
 ]
 
 sample_menus = Menu.create! [
