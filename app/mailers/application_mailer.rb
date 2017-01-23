@@ -3,5 +3,5 @@ class ApplicationMailer < ActionMailer::Base
 
   default from: "noreply@recipefinder.com"
   layout 'mailer'
-  default 'content-type' => 'text/html'
+  # default 'content-type' => 'text/html'
 end
