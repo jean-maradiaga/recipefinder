@@ -1,9 +1,10 @@
 <!-- Contact Area -->
+        <h2 class="section-title dark">Login</h2>
 <section class="section section-contact">
   <div class="row row-fit">
     <div class="col-md-12 centered">
       <div class="contact-area-block">
-        <h2 class="section-title dark">Login</h2>
+
 
 	<!-- LOGIN FORM -->
 	<%= form_for(:user, url: sessions_path, :html => {:class => "contact-form"} )do |f| %>
@@ -21,6 +22,8 @@
           </label>
 
 		  <%= f.submit "Login", :class => 'btn submit-btn' %>
+
+		  <%= link_to "Register", new_user_path ,{ :class=>"btn submit-btn push-me" } %>
 
     <% end %>
 	<!-- END LOGIN FORM  -->
