@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
 
 	  # Activates an account.
 	  def activate
-	    update_columns(status: true, activated_at: true)
+	    update_columns(status: true, activated_at: Time.zone.now)
 	  end
 
 	  # Sends activation email.
