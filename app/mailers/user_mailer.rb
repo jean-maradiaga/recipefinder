@@ -7,7 +7,10 @@ class UserMailer < ApplicationMailer
   #
   def account_activation(user)
     @user = user
+    attachments.inline['logo.png'] =  File.read(Rails.root.join('app', 'assets', 'images', 'site-logo2.png'))
+    attachments.inline['hero.png'] =  File.read(Rails.root.join('app', 'assets', 'images', 'hero.png'))
     mail to: user.email, subject: "Account activation"
+
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
