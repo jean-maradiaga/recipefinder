@@ -51,11 +51,6 @@
             </span>
             <ul>
 
-              <% if is_admin? %>
-                 <li>
-                  <%= link_to 'Admin', about_path %>
-                </li>
-              <% end %>
 
               <li class="megamenu-container menu-item-has-children">
                 <%= link_to 'Recipes', recipes_index_path(search: "best") %>
