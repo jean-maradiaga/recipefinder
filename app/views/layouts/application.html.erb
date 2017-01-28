@@ -50,6 +50,13 @@
             <i class="icon-cross2"></i>
             </span>
             <ul>
+
+              <% if is_admin? %>
+                 <li>
+                  <%= link_to 'Admin', about_path %>
+                </li>
+              <% end %>
+
               <li class="megamenu-container menu-item-has-children">
                 <%= link_to 'Recipes', recipes_index_path(search: "best") %>
                 <ul>
@@ -197,7 +204,7 @@
 <div class="content-wrapper">
   <!-- Site Intro -->
   <div class="site-intro">
-    <%= image_tag "logo-3.jpg" %>
+    <%= image_tag "intro-2.jpg" %>
   </div>
 
   <%= yield %>

@@ -1,12 +1,14 @@
 class User < ActiveRecord::Base
 	before_create :create_activation_digest
-	before_save   :downcase_email
+	before_save   :downcase_email, :trim_whitespace => [:email, :password, :password_confirmation]
 
 	has_many :menus, dependent: :destroy
 	has_many :cook_books, dependent: :destroy
 
 	# Uses gem bcrypt to create a secure hashed password
 	has_secure_password
+
+	validates_confirmation_of :password # This automatically validates if :password == :password_confirmation
 
     # Custom regex to validate email.
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -17,6 +19,10 @@ class User < ActiveRecord::Base
 	validates_uniqueness_of :email
 
 	attr_accessor :activation_token
+
+	# Removes whitespaces
+	# auto_strip_attributes :email, :password, :squish => true
+
 
 	  # Returns the hash digest of the given string.
 	  def User.digest(string)
@@ -47,16 +53,22 @@ class User < ActiveRecord::Base
 	    UserMailer.account_activation(self).deliver_now
 	  end
   
-	private
+private
 
-	  # Converts email to all lower-case.
-	  def downcase_email
-	    self.email = email.downcase
-	  end
+	 # Converts email to all lower-case.
+	def downcase_email
+	  self.email = email.downcase
+	end
 
-	  # Creates a URL safe activation digest.
-	  def create_activation_digest
-	    self.activation_token  = User.new_token
-        self.activation_digest = User.digest(activation_token)
-	  end
+	def strip_whitespace
+	  self.email = self.email.strip unless self.email.nil?
+	  self.password = self.password.strip unless self.password.nil?
+	  self.password_confirmation = self.password_confirmation.strip unless self.password_confirmation.nil?
+	end
+
+	# Creates a URL safe activation digest.
+	def create_activation_digest
+	  self.activation_token  = User.new_token
+      self.activation_digest = User.digest(activation_token)
+	end
 end

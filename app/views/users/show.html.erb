@@ -1,19 +1,56 @@
-<p id="notice"><%= notice %></p>
+<h1 class="section-title dark">User Profile</h1>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<section class="section section-contact">
+  <div class="row row-fit">
+    <div class="col-md-12 centered">
+      <div class="contact-area-block">
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
+	<form class="contact-form">
 
-<p>
-  <strong>Status:</strong>
-  <%= @user.status %>
-</p>
+          <label class="input-line">
+          <%= @user.email %>
+          <span class="placeholder"></span>
+          <i class="form-icon icon-user"></i>
+          </label>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+          <label class="input-line">
+          <% if @user.status %>
+
+            <%= "Active" %>
+            <span class="placeholder"></span>
+            <i class="form-icon icon-unlock"></i>
+
+          <% else %>
+
+            <%= "Inactive" %>
+            <span class="placeholder"></span>
+			<i class="form-icon icon-lock4"></i>
+
+		  <% end %>
+          </label>
+
+      <%= link_to 'Edit', edit_user_path(@user), { :class=>"btn submit-btn" } %>
+
+      <%= link_to "Back", users_path, { :class=>"btn aux-btn" } %>
+
+      </form>
+
+
+            <!-- SOME INFO  -->
+        <div class="contact-blocks">
+          <div class="row row-fit">
+
+            <div class="col-md-24">
+              <div class="contact-block">
+                <span class="title"></span>
+                <p class="body"></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

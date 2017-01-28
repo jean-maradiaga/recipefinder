@@ -1,31 +1,65 @@
-<p id="notice"><%= notice %></p>
+<h1 class="section-title dark">User List</h1>
 
-<h1>Listing Users</h1>
+<section class="section section-contact">
+  <div class="row row-fit">
+    <div class="col-md-18 centered">
+      <div class="contact-area-block">
 
-<table>
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Password digest</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= user.password_digest %></td>
-        <td><%= user.status %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <table border="1" class="table table-striped table-condensed">
+          <tr>
+            <th>Email</th>
+            <th>Is Active?</th>
+            <th>Actions</th>
+          </tr>
+          <% @users.each do |user| %>
+            <tr class=<%= cycle('even', 'odd') %>>
+              <td><%= user.email %></td>
+              <td>          
+                <% if user.status %>
 
-<br>
+                <%= "Active" %>
 
-<%= link_to 'New User', new_user_path %>
+              <% else %>
+
+                <%= "Inactive" %>
+
+                <% end %>
+              </td>
+              <td>
+
+              <ul class="clean-list social-platforms">
+                <li>
+                  <%= link_to raw('<i class="icon-eye3"></i>'), user %>
+                </li>
+                <li>
+                  <%= link_to raw('<i class="icon-note"></i>'), edit_user_path(user) %>
+                </li>
+                <li>
+                  <%= link_to raw('<i class="icon-trash3"></i>'), user, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </li>
+            </ul>
+                
+              </td>
+            </tr>
+          <% end %>
+        </table><br>
+
+            <!-- SOME INFO  -->
+        <div class="contact-blocks">
+          <div class="row row-fit">
+
+            <div class="col-md-24">
+              <div class="contact-block">
+                <span class="title"><%= link_to 'New User', new_user_path,{ :class=>"btn btn-show" }%></span>
+                <p class="body"></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

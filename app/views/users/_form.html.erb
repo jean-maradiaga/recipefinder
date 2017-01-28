@@ -1,25 +1,72 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<section class="section section-contact">
+  <div class="row row-fit">
+    <div class="col-md-12 centered">
+      <div class="contact-area-block">
+
+<!-- CREATE USER FORM -->
+    <%= form_for(@user,:html => {:class => "contact-form"}) do |f| %>
+
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+          <label class="input-line">
+          <%= f.text_field :email, class: 'form-input check-value'  %>
+          <span class="placeholder">E-mail address</span>
+          <i class="form-icon icon-user2"></i>
+          </label>
+
+          <label class="input-line">
+          <%= f.password_field :password, class: 'form-input check-value'  %>
+          <span class="placeholder">Password</span>
+          <i class="form-icon icon-key2"></i>
+          </label>
+
+        <% if @user.persisted? %>
+          <label class="input-line">
+          <%= f.password_field :password_confirmation, class: 'form-input check-value'  %>
+          <span class="placeholder">Re-type password</span>
+          <i class="form-icon icon-lock2"></i>
+          </label>
+
+            <% if is_admin? %>
+              <!-- Add a good looking way to change a user's status later on. -->
+            <% end %>
+
+        <% end %>
+
+      <%= f.submit "Submit", :class => 'btn submit-btn' %>
+
+      <%= link_to "Back", users_path ,{ :class=>"btn aux-btn" } %>
+
+    <% end %>
+  <!-- END USER FORM  -->
+
+
+            <!-- SOME INFO  -->
+        <div class="contact-blocks">
+          <div class="row row-fit">
+
+            <div class="col-md-24">
+              <div class="contact-block">
+                <span class="title"><% if @user.persisted? %><%= link_to 'Show', @user,{ :class=>"btn btn-show" }%><% end %></span>
+                <p class="body"></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</section>

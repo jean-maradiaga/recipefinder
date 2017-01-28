@@ -10071,6 +10071,7 @@ ul.page-numbers li:not(:last-of-type) {
   border: 0;
   color: #c39c57;
   border-bottom: 1px solid transparent;
+  float:right;
 }
 .comments-form .submit-btn:hover,
 .contact-form .submit-btn:hover {
@@ -10961,6 +10962,43 @@ table{
     text-align: left;
 }
 
-.push-me {
-    float:right;
+.comments-form .aux-btn,
+.contact-form .aux-btn {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  line-height: 1em;
+  font-weight: 700;
+  font-size: 14px;
+  background: 0;
+  padding: 0 0 5px;
+  border: 0;
+  color: #c39c57;
+  border-bottom: 1px solid transparent;
+  float:left;
+}
+.btn-show{
+  text-transform: uppercase;
+    letter-spacing: 0.2em;
+    line-height: 1em;
+    font-weight: 700;
+    font-size: 14px;
+    background: 0;
+    padding: 0 0 5px;
+    border: 0;
+    color: #c39c57;
+    border-bottom: 1px solid transparent;
+        margin: auto;
+    width: 50%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 12px;
+}
+
+.even {
+  background-color: #f2f1ef;
 }
