@@ -15,6 +15,12 @@ class ApplicationController < ActionController::Base
 	      redirect_to login_path unless session[:user_id]
 	    end
 
+	    def ensure_admin
+	      # Hace un redirect a la pagina de login siempre y cuando
+	      # no exista nada en session[:user_id]
+	      redirect_to root_path unless is_admin?
+	    end	    
+
 	    def logged_in?
 	      session[:user_id]
 	    end
