@@ -51,6 +51,11 @@
             </span>
             <ul>
 
+            <% if logged_in? && is_admin? %>
+              <li>
+                <a href="#">Admin</a>
+              </li>
+            <% end %>
 
               <li class="megamenu-container menu-item-has-children">
                 <%= link_to 'Recipes', recipes_index_path(search: "best") %>
@@ -134,7 +139,7 @@
                 <% if logged_in? %>
                   <%= link_to 'Logout', logout_path, :method => :delete %>
                 <% else %>
-                  <%= link_to 'Login', login_path %>
+                  <%= link_to 'Login', login_path, { :class=>"a-gold" }%>
                 <% end %>
               </li>
             </ul>
