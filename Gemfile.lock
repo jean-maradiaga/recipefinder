@@ -91,6 +91,9 @@ GEM
     multi_xml (0.6.0)
     nokogiri (1.7.0.1-x86-mingw32)
       mini_portile2 (~> 2.1.0)
+    passenger (5.1.2)
+      rack
+      rake (>= 0.8.1)
     pg (0.19.0-x86-mingw32)
     phantomjs (1.9.8.0)
     poltergeist (1.6.0)
@@ -189,6 +192,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
+  passenger
   pg
   phantomjs (~> 1.9.8.0)
   poltergeist (~> 1.6.0)

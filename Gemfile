@@ -20,6 +20,9 @@ gem 'bcrypt', '~> 3.1.7'
 #remove whitespaces
 gem "auto_strip_attributes", "~> 2.1"
 
+gem "passenger"
+
+
 # Access an IRB console on exception pages or by using <%= console %> in views
 gem 'web-console', '~> 2.0', group: :development
 

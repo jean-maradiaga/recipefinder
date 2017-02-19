@@ -10496,6 +10496,8 @@ ul.page-numbers li:not(:last-of-type) {
   position: relative;
   overflow: hidden;
   margin-bottom: 0.875rem;
+  height: 280px;
+
 }
 .recipe-box .box-cover a,
 .recipe-box .box-cover img {
@@ -10926,6 +10928,7 @@ ul.page-numbers li:not(:last-of-type) {
 }
 .recipe_img{
 		height: 280px!important;
+    position:relative;
 }
 
 /*header{
@@ -11010,3 +11013,4 @@ td {
 .a-greyish {
   color: #CE9C57;
 }
+
