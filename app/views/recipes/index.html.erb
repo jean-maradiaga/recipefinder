@@ -36,6 +36,7 @@
 	  <div class="row isotope-container" data-default-selection="*">
 
 	    <% @recipes.each do |recipe| %>
+	    	<% cache recipe do %>
 
 	    <div class="col-xs-12 col-lg-8 recipe-box-wrapper isotope-item chicken">
 	      <div class="recipe-box">
@@ -52,7 +53,7 @@
 	        </div>
 	      </div>
 	    </div>
-
+			<% end %>
 	    <% end %>
 
 	  </div>
