@@ -1,0 +1,110 @@
+
+  <!-- Site Intro -->
+  <h2 class="section-title dark">Coming Soon</h2>
+  <!-- Blog Area -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-18">
+        <div class="page-area">
+          <div class="page-cover">
+            <%= image_tag "soon.jpeg" %>
+          </div>
+          <div class="page-body">
+            <h3 class="align-center page-subtitle">Hungry?</h3>
+            <span class="delimiter">
+            <i class="icon-delete2"></i>
+            <i class="icon-delete2"></i>
+            <i class="icon-delete2"></i>
+            </span>
+
+            <p class="align-center">Something tasty cometh soon.</p>
+
+
+<!--             <blockquote>
+              <p class="message">"This site doesn't care if you're on an iMac or a motherfucking Tamagotchi."</p>
+              <cite>So what did we learn?</cite>
+            </blockquote>
+
+            <p class="align-center">When we were starting out, we didn’t know Ruby or Rails and could do what Java or .NET did in our sleep. We budgeted 2 weeks to play around with Rails and if we were still as frustrated after 2 weeks as we were day one, we’d switch to Java. In those two weeks, we had built so much functionality there was no reason to go back. The high amount of developer</p> -->
+          </div>
+
+          <div class="page-footer">
+            <ul class="clean-list share-block">
+              <li>
+                <a href="#">
+                <i class="icon-facebook"></i>
+                <span>Facebook</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <i class="icon-twitter"></i>
+                <span>twitter</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <i class="icon-instagram"></i>
+                <span>Instagram</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <i class="icon-google-plus"></i>
+                <span>Google+</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-5 col-lg-offset-1">
+        <aside class="main-sidebar">
+
+          <div class="widget widget_popular_posts">
+
+            <h5 class="widget-title">Popular dishes</h5>
+
+            <ul class="clean-list popular-posts">
+
+          <!--  -->
+
+              <li class="popular-post">
+                <%= link_to(image_tag(@recipe1["image_url"], class: "post_img"), @recipe1['source_url'], {class:"post-cover"})%>
+                <h5 class="post-tile">
+                  <%= link_to(sanitize(@recipe1["title"]), @recipe1['source_url']) %>
+                </h5>
+              </li>
+
+              <li class="popular-post">
+                <%= link_to(image_tag(@recipe2["image_url"], class: "post_img"), @recipe2['source_url'], {class:"post-cover"})%>
+                <h5 class="post-tile">
+                  <%= link_to(sanitize(@recipe2["title"]), @recipe2['source_url']) %>
+                </h5>
+              </li>
+
+              <li class="popular-post">
+                <%= link_to(image_tag(@recipe3["image_url"], class: "post_img"), @recipe3['source_url'], {class:"post-cover"})%>
+                <h5 class="post-tile">
+                  <%= link_to(sanitize(@recipe3["title"]), @recipe3['source_url']) %>
+                </h5>
+              </li> 
+                           
+          <!--    -->
+
+            </ul>
+          </div>
+
+          <div class="widget widget_advertising">
+            <a href="#" class="ad-block">
+            <img src="img/ad-widget.jpg" alt="ad cover" />
+            </a>
+          </div>
+
+        </aside>
+      </div>
+
+    </div>
+  </div>

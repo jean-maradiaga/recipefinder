@@ -14,12 +14,13 @@
           <span class="placeholder">E-mail address</span>
           <i class="form-icon icon-user2"></i>
           </label>
-
+		  <small> <%= link_to "Forgot password?", new_password_reset_path ,{ :class=>"" } %></small>
           <label class="input-line">
           <%= f.password_field :password, class: 'form-input check-value'  %>
           <span class="placeholder">Password</span>
           <i class="form-icon icon-key2"></i>
           </label>
+
 
 		  <%= f.submit "Login", :class => 'btn submit-btn' %>
 

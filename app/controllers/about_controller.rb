@@ -1,12 +1,15 @@
 class AboutController < ApplicationController
 
   before_action :set_random
-  skip_before_action :ensure_login, only: [:manifesto]
+  skip_before_action :ensure_login, only: [:manifesto, :construction]
 
   # You can leave the about method blank, it will render
   # the corresponding .html.erb by default
 
   def manifesto
+  end
+
+  def construction
   end
 
   	private

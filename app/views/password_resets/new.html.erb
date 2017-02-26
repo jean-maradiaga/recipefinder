@@ -1,0 +1,91 @@
+<style>
+	.page-area {
+	    display: block;
+	    margin: 0 0 1.25rem;
+	}	
+</style>
+  
+  <!-- Site Intro -->
+  <h2 class="section-title dark">PASSWORD RECOVERY</h2>
+  <!-- Blog Area -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-24">
+        <div class="page-area">
+          <div class="page-cover">
+            <%= image_tag "coffee_pass.jpeg" %>
+          </div>
+
+          <div class="page-body">
+            <h3 class="align-center page-subtitle">Hello</h3>
+            <span class="delimiter">
+            <i class="icon-delete2"></i>
+            <i class="icon-delete2"></i>
+            <i class="icon-delete2"></i>
+            </span>
+
+           <p class="align-center">So you forgot your password, Chef in the making? Fear not we all make mistakes. Luckily our developers foresaw such thing could happen, just follow the steps below to recover your account. If you're still unable to recover your account e.g you don't have access to your mail anymore, please 
+           <%= link_to "contact us", 'https://google.com/',{ :class=>"a-gold" }%> and we will sort this out for you.</p>
+
+
+            <blockquote>
+              <p class="message">Please fill the form below to recover your password.</p>
+              <cite>RECOVER PASSWORD</cite>
+            </blockquote>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Contact Area -->
+<section class="section section-contact">
+  <div class="row row-fit">
+    <div class="col-md-12 centered">
+      <div class="contact-area-block">
+
+
+	<!-- LOGIN FORM -->
+	<%= form_for(:password_reset, url: password_resets_path, :html => {:class => "contact-form"} )do |f| %>
+
+          <label class="input-line">
+          <%= f.text_field :email, class: 'form-input check-value'  %>
+          <span class="placeholder">E-mail address</span>
+          <i class="form-icon icon-mail2"></i>
+          </label>
+
+		<%= f.submit "Recover", :class => 'btn aux-btn' %>
+
+    <% end %>
+	<!-- END LOGIN FORM  -->
+
+	<!-- CONCTACT INFO  -->
+		<div class="contact-blocks">
+		  <div class="row row-fit">
+		    <div class="col-sm-8">
+		      <div class="contact-block">
+		        <span class="title">Phone</span>
+		        <p class="body">(+506) 8817-6579</p>
+		      </div>
+		    </div>
+		    <div class="col-sm-8">
+		      <div class="contact-block">
+		        <span class="title">Email</span>
+		        <p class="body">sunshine-on-rails@gmail.com</p>
+		      </div>
+		    </div>
+		    <div class="col-sm-8">
+		      <div class="contact-block">
+		        <span class="title">Address</span>
+		        <p class="body">CR, San Jose, Curridabat</p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+      </div>
+    </div>
+  </div>
+</section>

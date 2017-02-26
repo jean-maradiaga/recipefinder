@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   get 'recipes/index'
   root 'recipes#index'
 
@@ -19,12 +23,15 @@ Rails.application.routes.draw do
   delete "/logout" => "sessions#destroy", as: "logout"
 
   get "/about" => "about#manifesto", as: "about"
+  get "/construction" => "about#construction", as: "soon"
+
   get "/profile" => "users#show", as: "profile"
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :sessions, only: [:new, :create, :destroy]
   resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 
   # Example resource route with options:
   #   resources :products do
