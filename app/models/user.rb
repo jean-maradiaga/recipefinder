@@ -69,6 +69,11 @@ class User < ActiveRecord::Base
 	    reset_sent_at < 2.hours.ago
 	  end
 
+    # Creates and assigns the default cook book.
+    def create_favorites
+       self.cook_books << CookBook.new(name: "Favorites", description: "This recipes I love!")
+    end  	  
+
 private
 
 	 # Converts email to all lower-case.

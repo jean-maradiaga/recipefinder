@@ -31,6 +31,8 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
       @user.send_activation_email
+      @user.create_favorites
+
       format.html { redirect_to login_path, notice: 'Please check your email to activate your account.' }
       format.json { render :show, status: :created, location: @user }
       else
@@ -80,4 +82,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation)
     end
+
+  
 end

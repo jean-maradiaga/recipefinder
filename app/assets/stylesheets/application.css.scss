@@ -2652,6 +2652,7 @@ html .row-fit-40 .vc_column_container > .vc_column-inner .vc_row {
 
 .icon-heart4:before {
   content: "";
+  color: red;
 }
 
 .icon-cloud4:before {
@@ -2940,6 +2941,7 @@ html .row-fit-40 .vc_column_container > .vc_column-inner .vc_row {
 
 .icon-heart3:before {
   content: "";
+  color: red;
 }
 
 .icon-paragraph2:before {
@@ -4236,6 +4238,7 @@ html .row-fit-40 .vc_column_container > .vc_column-inner .vc_row {
 
 .icon-heart2:before {
   content: "";
+  color: red;
 }
 
 .icon-heart-broken:before {
@@ -5344,6 +5347,7 @@ html .row-fit-40 .vc_column_container > .vc_column-inner .vc_row {
 
 .icon-heart:before {
   content: "";
+  color: red;
 }
 
 .icon-star:before {
@@ -5848,6 +5852,7 @@ html .row-fit-40 .vc_column_container > .vc_column-inner .vc_row {
 
 .icon-heart-o:before {
   content: "";
+  color: red;
 }
 
 .icon-sign-out:before {
@@ -7308,6 +7313,7 @@ html .row-fit-40 .vc_column_container > .vc_column-inner .vc_row {
 
 .icon-heartbeat:before {
   content: "";
+  color: red;
 }
 
 .icon-venus:before {
@@ -7966,7 +7972,7 @@ button:focus {
 }
 .main-header .main-nav {
   margin-left: auto;
-  margin-right: 2.625rem;
+  margin-right: 6.625rem;
 }
 .main-header .main-nav .close-mobile-menu {
   -webkit-transform: translate(-50%, 0);
@@ -10490,7 +10496,7 @@ ul.page-numbers li:not(:last-of-type) {
 
 /* ----- Simple Recipe Box ----- */
 .recipe-box {
-  margin-bottom: 1.75rem;
+  margin-bottom: 0.75rem;
 }
 .recipe-box .box-cover {
   position: relative;
@@ -10551,7 +10557,7 @@ ul.page-numbers li:not(:last-of-type) {
   letter-spacing: 0.2em;
   font-weight: 500;
   line-height: 1.425em;
-  font-size: 14px;
+  font-size: 11px;
   color: #413f40;
   margin: 0 0 10px;
 }
@@ -11012,6 +11018,11 @@ td {
 
 .a-greyish {
   color: #CE9C57;
+}
+
+.recipe-buttons{
+  text-align: center;
+  margin: 0!important;
 }
 
 
