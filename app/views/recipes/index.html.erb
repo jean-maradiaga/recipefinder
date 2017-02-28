@@ -49,6 +49,8 @@
 	          <h5 class="box-title">                                 
 	            <%= link_to(sanitize(recipe["title"]), recipe['source_url']) %>
 	          </h5>
+	          
+	          <% end %>
 
 	          <% if logged_in? %>
 	          <p class="recipe-buttons">                                 
@@ -59,7 +61,7 @@
 	        </div>
 	      </div>
 	    </div>
-			<% end %>
+			
 	    <% end %>
 
 	  </div>
